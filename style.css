@@ -1,0 +1,106 @@
+/* style.css */
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive; /* Retro pixel font */
+}
+
+body {
+    background-color: #222; /* Dark background for contrast */
+    color: #fefefe; /* Light text color */
+    font-family: 'Press Start 2P', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #00e5ff; /* Bright blue for retro feel */
+    text-shadow: 2px 2px 0px #ff005f, 4px 4px 0px #ffbf00; /* Glowing shadow effect */
+    margin-bottom: 10px;
+}
+
+hr {
+    width: 80%;
+    border: 1px solid #ff005f;
+    margin: 10px 0;
+}
+
+/* Form Styling */
+#add-form {
+    background-color: #333;
+    border: 3px solid #ff005f; /* Retro neon border */
+    padding: 20px;
+    width: 300px;
+    margin: 20px 0;
+    box-shadow: 0px 0px 10px #ff005f; /* Neon glow */
+    border-radius: 8px;
+}
+
+#add-form h3 {
+    color: #ffbf00;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px #ff005f;
+}
+
+#add-form h4 {
+    color: #00e5ff;
+    font-size: 1rem;
+    margin: 10px 0 5px;
+}
+
+#add-form input {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    background-color: #444;
+    border: 2px solid #ff005f;
+    color: #fefefe;
+    outline: none;
+}
+
+#save-game-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff005f;
+    color: #fefefe;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 4px;
+    text-shadow: 1px 1px #222;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+#save-game-button:hover {
+    background-color: #ffbf00;
+    transform: scale(1.05);
+}
+
+/* Animation for button */
+#save-game-button:active {
+    background-color: #ff005f;
+    transform: scale(0.95);
+}
+
+/* Section styling */
+section {
+    width: 80%;
+    max-width: 600px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    border: 3px solid #ffbf00;
+    box-shadow: 0px 0px 15px #ffbf00;
+    margin-top: 10px;
+}
+
+/* Retro pixel font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
