@@ -44,22 +44,7 @@ class GamesDB:
        self.cursor.execute("DELETE FROM games WHERE id = ?", data)
        self.connection.commit()
        return True
-    
-    def createUser(self,fisrt_name,last_name,email,password):
-        data = [first_name, last_name, email, password]
-   #add new user to our DB
-        self.cursor.execute("INSERT INTO users (first_name, last_name, email, password) VALUES(?,?,?,)",data)
-        self.connection.commit()
-
-    def get_user_by_email(self,email):
-        data = [email]
-        self.cursor.execute("SELECT * FROM users WHERE email = ?", data)
-        user = self.cursor.fetchone()
-        return 
-
 
     def close(self):
        self.connection.close()
        return True
-    
-

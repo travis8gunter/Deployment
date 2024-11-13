@@ -1,3 +1,7 @@
+const apiUrl = window.location.protocol === 'file:'
+  ? 'http://localhost:8080' // Local API server during development
+  : '';
+
 console.log("connected")
 
 let gameWrapper = document.querySelector("section");
@@ -6,8 +10,6 @@ let inputGenre = document.querySelector("#input-genre");
 let inputRating = document.querySelector("#input-rating");
 let inputMultiplayer = document.querySelector("#input-multiplayer");
 let inputPrice = document.querySelector("#input-price");
-let inputEmail = document.querySelector("#input-email-login");
-let inputPassword = document.querySelector("#input-password-login");
 
 let saveGameButton = document.querySelector("#save-game-button");
 
@@ -24,10 +26,10 @@ function saveGameToServer() {
     data += "&multiplayer=" + encodeURIComponent(inputMultiplayer.value);
     data += "&price=" + encodeURIComponent(inputPrice.value);
 
-    let URL = "http://localhost:8080/games";
+    let URL = `${apiUrl}/games`;
     let method = "POST";
     if(editId) {
-        URL = "http://localhost:8080/games/" + editId;
+        URL = `${apiUrl}/games/${editId}`;
         method = "PUT";
     }
 
@@ -107,7 +109,7 @@ function addGame(data) {
 }
 
 function loadGameFromServer() {
-    fetch("http://localhost:8080/games")
+    fetch(`${apiUrl}/games`)
     .then(function(response) {
         response.json().then(function(data){
             console.log(data);
@@ -123,7 +125,7 @@ saveGameButton.onclick = saveGameToServer;
 loadGameFromServer();
 
 function deleteGameFromServer(id) {
-    let URL = "http://localhost:8080/games/" + id;
+    let URL = apiUrl + id;
 
     fetch(URL, {
         method: "DELETE"
@@ -139,18 +141,3 @@ function deleteGameFromServer(id) {
         console.error("Network error:", error);
     });
 }
-
-
-
-
-
-const apiUrl = window.location.protocol === 'file:'
-  ? 'http://localhost:8080' // Local API server during development
-  : ''; // Production API
-
-Then, you will remove any reference to 'http://localhost:8080' within your code and replace it with apiUrl.
-
-In your python file make sure your run function looks like this:
-
-def run():
-    app.run(port=8080, host='0.0.0.0')

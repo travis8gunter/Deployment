@@ -64,24 +64,8 @@ def delete_game(game_id):
     db.delete(game_id)
     return "Deleted", 200, {"Access-Control-Allow-Origin": "*"}
 
-@app.route("/users", methods=["POST"])
-def create_in_users_collection():
-    print("Thee request data is: ", request.form)
-    first_name = request.form["first_name"]
-    last_name = request.form["last_name"]
-    email = request.form["email"]
-    password = request.form["password"]
-    db = GamesDB("videogames_db.db")
-    #need to encrypt password before storing in DB
-    # need to check if email has already beeen used to avoid duplicate accounts
-    if db.get_user_by_email(email):
-        return f"User with email{email} already exists", 422, {"Access-Control-Allow-Origin": "*"}
-    
-    db.createUser(first_name, last_name, email, password)
-    return "User created", 201, {"Access-Control-Allow-Origin": "*"}
-
 def run():
-    app.run(port=8080)
+    app.run(port=8080, host='0.0.0.0')
 
 if __name__ == "__main__":
     run()
